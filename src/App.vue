@@ -16,4 +16,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html,body,#app {height: 100%}
+html,body{margin:0;padding:0;}
 </style>
