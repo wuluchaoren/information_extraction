@@ -23,22 +23,5 @@
 </script>
 
 <style scoped>
-  .root{
-    height: 100%;
-    width: 100%;
-  }
-  .head{
-    height: 7%;
-    width: 100%;
-  }
-  .main{
-    height: 85%;
-    width: 100%;
-  }
-  .foot{
-    width: 100%;
-    height: 8%;
-    display: flex;
-    justify-content: center;
-  }
+  @import "../assets/css/PageStyle.css";
 </style>
