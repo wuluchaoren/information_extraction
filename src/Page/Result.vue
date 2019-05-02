@@ -32,12 +32,12 @@
     width: 100%;
   }
   .main{
-    height: 88%;
+    height: 85%;
     width: 100%;
   }
   .foot{
     width: 100%;
-    height: 5%;
+    height: 8%;
     display: flex;
     justify-content: center;
   }

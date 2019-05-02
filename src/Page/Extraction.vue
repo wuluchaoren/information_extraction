@@ -34,11 +34,11 @@
   }
   .main{
     width: 100%;
-    height: 88%;
+    height: 85%;
   }
   .foot{
     width: 100%;
-    height: 5%;
+    height: 8%;
     display: flex;
     justify-content: center;
     align-items: center;
