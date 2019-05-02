@@ -12,13 +12,5 @@
 </script>
 
 <style scoped>
-  .head1{
-    height: 100%;
-    width: 100%;
-    background: cornflowerblue;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  @import "../assets/css/HeadStyle.css";
 </style>

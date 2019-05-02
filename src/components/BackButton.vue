@@ -26,12 +26,5 @@
 </script>
 
 <style scoped>
-  .back{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: indianred solid 1px;
-    border-radius: 50%;
-    color: indianred;
-  }
+  @import "../assets/css/BackButtonStyle.css";
 </style>

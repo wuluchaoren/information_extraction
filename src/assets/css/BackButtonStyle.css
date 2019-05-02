@@ -1,0 +1,8 @@
+.back{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: indianred solid 1px;
+  border-radius: 50%;
+  color: indianred;
+}

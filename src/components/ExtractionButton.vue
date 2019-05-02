@@ -16,12 +16,5 @@
 </script>
 
 <style scoped>
-  .extraction{
-    width: 8%;
-    height: 50%;
-    background: #30be2f;
-    border: transparent;
-    border-radius: 5px;
-    color: #fff;
-  }
+  @import "../assets/css/ExtractionButtonStyle.css";
 </style>
