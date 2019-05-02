@@ -7,6 +7,7 @@
       <ExtractionBody></ExtractionBody>
     </div>
     <div class="foot">
+      <div class="foot_left"></div>
       <ExtractionButton></ExtractionButton>
     </div>
   </div>
@@ -24,5 +25,5 @@
 </script>
 
 <style scoped>
-  @import "../assets/css/PageStyle.css";
+  @import "../assets/css/ExtractionPageStyle.css";
 </style>

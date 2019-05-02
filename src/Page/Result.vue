@@ -23,5 +23,5 @@
 </script>
 
 <style scoped>
-  @import "../assets/css/PageStyle.css";
+  @import "../assets/css/ResultPageStyle.css";
 </style>
