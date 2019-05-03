@@ -1,13 +1,20 @@
 <template>
   <div class="root">
     <div class="left">
+      <div class="demo">Demo!!!</div>
       <div class="tips">
-        <div class="tipsWord">Tips‼</div>
-        <div class="inputTips">在右边的输入框中输入需要抽取信息的内容!!!👉</div>
-        <div class="line"></div>
-        <div class="or">Or</div>
-        <div class="line"></div>
-        <div class="fileTips">选择上传的文件!!!👉</div>
+        <!--<div class="tipsWord">Tips‼</div>-->
+        <!--<div class="inputTips">在右边的输入框中输入需要抽取信息的内容!!!👉</div>-->
+        <!--<div class="line"></div>-->
+        <!--<div class="or">Or</div>-->
+        <!--<div class="line"></div>-->
+        <!--<div class="fileTips">选择上传的文件!!!👉</div>-->
+        <img class="pic" width="42%" height="40%" alt="贝多芬" src="../../static/pic/贝多芬.jpg"/>
+        <img class="pic" width="42%" height="40%" alt="莫扎特" src="../../static/pic/莫扎特.jpg"/>
+        <img class="pic" width="42%" height="40%" alt="柴可夫斯基" src="../../static/pic/柴可夫斯基.jpg"/>
+        <img class="pic" width="42%" height="40%" alt="肖邦" src="../../static/pic/肖邦.jpg"/>
+        <img class="pic" width="42%" height="40%" alt="西贝柳斯" src="../../static/pic/西贝柳斯.jpg"/>
+        <img class="pic" width="42%" height="40%" alt="舒伯特" src="../../static/pic/舒伯特.jpg"/>
       </div>
     </div>
     <div class="right">
@@ -20,6 +27,7 @@
           <input type="file" name="avatar" id="avatar" @change="change"/>
           <a class="button-selectimg" id="avatsel1"  @click="upload">选择文件</a>
       </div>
+      <div class="word">请输入需要抽取信息的文字，或者选择上传的文件。注：文件具有更高的优先级。</div>
     </div>
   </div>
 </template>
@@ -46,69 +54,20 @@
     display: flex;
   }
   .left{
-    display: flex;
-    width: 25%;
+    width: 30%;
     height: 100%;
   }
   .right{
-    width: 75%;
+    width: 70%;
     height: 100%;
   }
   .tips{
     height: 95%;
-    margin-top: 10%;
     width: 100%;
     border-right: 1px #eaeaea solid;
-  }
-  .tipsWord{
-    color: red;
-    font-size: 25px;
-    height: 5%;
-    width: 90%;
     display: flex;
-    align-items: center;
-    padding-left: 10%;
-    font-weight: 800;
-    font-family:Verdana,sans-serif
-  }
-  .inputTips{
-    width: 60%;
-    height: 20%;
-    margin-top: 10%;
-    margin-left: 16%;
-    border: cornflowerblue 2px solid;
-    border-radius: 20px;
-    padding: 3%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-  }
-  .line{
-    width: 0;
-    border: 1px solid cornflowerblue;
-    height: 23%;
-    margin-left: 50%;
-  }
-  .fileTips{
-    width: 60%;
-    height: 10%;
-    margin-left: 16%;
-    border: cornflowerblue 2px solid;
-    border-radius: 20px;
-    padding: 3%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-  }
-  .or{
-    height: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    color: cornflowerblue;
+    flex-wrap: wrap;
+    overflow: auto;
   }
   .inputBox{
     height: 80%;
@@ -157,5 +116,26 @@
   input[type='file']{
     border:0;
     display:none;
+  }
+  .pic{
+    margin-left: 5%;
+    margin-top: 2%;
+  }
+  .demo{
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cornflowerblue;
+    font-size: 25px;
+    font-weight: 800;
+  }
+  .word{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
