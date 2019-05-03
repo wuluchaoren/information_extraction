@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <div class="head">
-      <MyHead text="信息抽取"></MyHead>
+      <MyHead text="音乐家生平信息抽取"></MyHead>
     </div>
     <div class="main">
       <ExtractionBody></ExtractionBody>
