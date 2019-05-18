@@ -19,12 +19,12 @@
     </div>
     <div class="right">
       <div class="inputBox">
-        <textarea class="text"></textarea>
+        <textarea class="text" v-model="content"></textarea>
         <div class="line1">Or</div>
       </div>
       <div class="fileBox">
          <input type="text" id="avatval" placeholder="请选择文件" readonly="readonly" @click="upload"/>
-          <input type="file" name="avatar" id="avatar" @change="change"/>
+          <input type="file" name="avatar" id="avatar" @change="change()"/>
           <a class="button-selectimg" id="avatsel1"  @click="upload">选择文件</a>
       </div>
       <div class="word">请输入需要抽取信息的文字，或者选择上传的文件。注：文件具有更高的优先级。</div>
@@ -33,8 +33,16 @@
 </template>
 
 <script>
+    import ExtractionButton from "./ExtractionButton";
     export default {
       name: "ExtractionBody",
+      components: {ExtractionButton},
+      data(){
+        return {
+          content:'',
+          file:null,
+        }
+      },
       methods:{
         upload:function(){
           document.getElementById('avatar').click();
@@ -42,7 +50,9 @@
         change:function(){
           let content=document.getElementById('avatar').value.split('\\');
           document.getElementById('avatval').value=content[content.length-1];
-        }
+          console.log(document.getElementById('avatar').files[0]);
+          this.$data.file=document.getElementById('avatar').files[0];
+        },
       }
     }
 </script>

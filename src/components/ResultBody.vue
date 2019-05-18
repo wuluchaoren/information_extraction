@@ -7,15 +7,15 @@
               <div class="cardItems"><span class="cardItemsHead">事件编号：</span><span class="cardItemsBody">{{item.id}}</span></div>
               <div class="cardItems"><span class="cardItemsHead">时间：</span><span class="cardItemsBody">{{item.when}}</span></div>
               <div class="cardItems"><span class="cardItemsHead">地点：</span><span class="cardItemsBody">{{item.where}}</span></div>
+              <div class="cardItems"><span class="cardItemsHead">人：</span><span class="cardItemsBody">{{item.who}}</span></div>
               <div class="cardItems"><span class="cardItemsHead">事件：</span><span class="cardItemsBody">{{item.what}}</span></div>
-              <div class="cardItems"><span class="cardItemsHead">相关人员：</span><span class="cardItemsBody">{{item.who}}</span></div>
             </div>
           </slot>
         </div>
       </div>
       <div class="font">时间线!!!</div>
       <div class="line">
-        <my-dialog v-for="(item,index) in information" :content="item" :id="'dialog'.concat(index.toString())" :key="item.name" class="dialog"></my-dialog>
+        <my-dialog v-for="(item,index) in information" :content="item" :id="'dialog'.concat(index.toString())" :key="item.id" class="dialog"></my-dialog>
         <div class="row"></div>
         <result-line
           v-for="(item,index) in information"
@@ -47,75 +47,49 @@
           point.style.display="none";
           let pointp=document.getElementById(data.id-1).children[0].children[0];
           pointp.style.background="cornflowerblue";
+        },
+        init:function(){
+          let _this=this;
+          let res=JSON.parse(localStorage.getItem('response'));
+          console.log(res);
+          for(let i=0;i<res.length;i++){
+            _this.$data.information[i].id=i+1;
+            _this.$data.information[i].who=res[i].PER===undefined?'无法提取相关人':res[i].PER;
+            _this.$data.information[i].what=res[i].ISSUE;
+            _this.$data.information[i].when=res[i].TIME===undefined?'无法提取事件时间':res[i].TIME;
+            _this.$data.information[i].where=res[i].ORG===undefined?'无法提取事件场景':res[i].ORG;
+          }
+        },
+        initImg:function(){
+          let _this=this;
+          // _this.$axios.get(`/pic?character=${_this.$data.information[0].who}&number=${_this.$data.information.length}`).then(res=>{
+          //   console.log(res);
+          // }).catch(err=>{
+          //   console.log(err);
+          // })
+          _this.$axios.post('/pic',{character:_this.$data.information[0].who,number:_this.$data.information.length}).then(res=>{
+            console.log(res);
+          }).catch(err=>{
+            console.log(err);
+          })
         }
       },
       data(){
         return{
           information:[{
-            id:'1',
-            who:'1',
-            where:'2',
-            when:'3',
-            what:'4'
-          },
-            {
-              id:'2',
-              who:'sadas',
-              where:'2',
-              when:'3',
-              what:'4'
-            },
-            {
-              id:'3',
-              who:'eqweqw',
-              where:'2',
-              when:'3',
-              what:'4'
-            },
-            {
-              id:'4',
-              who:'eqweqw',
-              where:'2',
-              when:'3',
-              what:'4'
-            },
-            {
-              id:'5',
-              who:'eqweqw',
-              where:'2',
-              when:'3',
-              what:'4'
-            },
-            {
-              id: '6',
-              who: 'eqweqw',
-              where: '2',
-              when: '3',
-              what: '4'
-            },
-            {
-              id:'7',
-              who:'eqweqw',
-              where:'2',
-              when:'3',
-              what:'4'
-            },
-            {
-              id:'8',
-              who:'eqweqw',
-              where:'2',
-              when:'3',
-              what:'4'
-            },
-            {
-              id:'9',
-              who:'eqweqw',
-              where:'2',
-              when:'3',
-              what:'4'
+              id:'',
+              who:'',
+              where:'',
+              when:'',
+              what:'',
+              img:'',
             }],
 
         }
+      },
+      created() {
+        this.init();
+        this.initImg();
       }
     }
 </script>

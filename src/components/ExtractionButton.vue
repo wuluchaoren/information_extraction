@@ -7,9 +7,7 @@
       name: "ExtractionButton",
       methods:{
           Extraction:function(){
-            this.$router.push({
-              name:'Result'
-            });
+            this.$emit('extract');
           }
       }
     }
