@@ -51,13 +51,17 @@
         init:function(){
           let _this=this;
           let res=JSON.parse(localStorage.getItem('response'));
-          console.log(res);
+          _this.$data.information.splice(0,1);
           for(let i=0;i<res.length;i++){
-            _this.$data.information[i].id=i+1;
-            _this.$data.information[i].who=res[i].PER===undefined?'无法提取相关人':res[i].PER;
-            _this.$data.information[i].what=res[i].ISSUE;
-            _this.$data.information[i].when=res[i].TIME===undefined?'无法提取事件时间':res[i].TIME;
-            _this.$data.information[i].where=res[i].ORG===undefined?'无法提取事件场景':res[i].ORG;
+            let temp={
+              id:i+1,
+              who:res[i].PER===undefined?'':res[i].PER,
+              what:res[i].ISSUE,
+              when:res[i].TIME===undefined?'':res[i].TIME,
+              where:res[i].LOC===undefined?'':res[i].LOC,
+              img:''
+            };
+            _this.$data.information.push(temp);
           }
         },
         initImg:function(){
@@ -69,6 +73,12 @@
           // })
           _this.$axios.post('/pic',{character:_this.$data.information[0].who,number:_this.$data.information.length}).then(res=>{
             console.log(res);
+            for(let i=0;i<res.data.length;i++){
+              // if(res.data[i] !== undefined){
+              //   _this.$data.information0[i].img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558501379383&di=5a50742bb5861cfac9436b8b26dbceb6&imgtype=0&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2F5c5480482a5ac9db80005ea01adab422ea4c35fc.jpg"
+              // }
+              _this.$data.information[i].img=res.data[i];
+            }
           }).catch(err=>{
             console.log(err);
           })
@@ -83,8 +93,7 @@
               when:'',
               what:'',
               img:'',
-            }],
-
+            }]
         }
       },
       created() {
@@ -123,7 +132,7 @@
     position: absolute;
     top:50%;
     left:50%;
-    height: 50%;
+    height: 60%;
     width: 30%;
     border: 1px solid transparent;
     margin-left:-15%;
