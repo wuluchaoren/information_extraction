@@ -42,6 +42,7 @@
     border-radius: 50%;
     height: 0;
     border: 2px solid #8F48ED;
+    z-index: 9999;
   }
   .root{
     width: 4%;

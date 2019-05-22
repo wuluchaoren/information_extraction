@@ -10,7 +10,7 @@
         <!--<div class="line"></div>-->
         <!--<div class="fileTips">选择上传的文件!!!👉</div>-->
         <img class="pic" width="42%" height="40%" alt="贝多芬" src="../../static/pic/贝多芬.jpg"/>
-        <img class="pic" width="42%" height="40%" alt="莫扎特" src="../../static/pic/莫扎特.jpg"/>
+        <img class="pic" width="42%" height="40%" alt="莫扎特" src="../../static/pic/莫扎特.jpg" @click="demo" style="cursor:pointer"/>
         <img class="pic" width="42%" height="40%" alt="柴可夫斯基" src="../../static/pic/柴可夫斯基.jpg"/>
         <img class="pic" width="42%" height="40%" alt="肖邦" src="../../static/pic/肖邦.jpg"/>
         <img class="pic" width="42%" height="40%" alt="西贝柳斯" src="../../static/pic/西贝柳斯.jpg"/>
@@ -53,6 +53,17 @@
           console.log(document.getElementById('avatar').files[0]);
           this.$data.file=document.getElementById('avatar').files[0];
         },
+        demo:function(){
+            let _this = this;
+            _this.$axios.post('/text', {text:"1756年，莫扎特在萨尔兹堡出生了。在1781年，莫扎特在维也纳脱离了对大主教的依附，成为了历史上第一位自由作曲家。在1971年12月9日，莫扎特在维也纳撒手人间。"}).then((res) => {
+              localStorage.setItem('response', JSON.stringify([].slice.call(res.data)));
+              this.$router.push({
+                name: 'Result'
+              });
+            }).catch((err) => {
+              console.log(err);
+            })
+        }
       }
     }
 </script>
@@ -112,6 +123,7 @@
     border:1px solid cornflowerblue;
     border-radius:2px;
     margin-left: 1%;
+    cursor:pointer
   }
   input[id="avatval"]{
     padding: 3px 6px 3px 10px;
@@ -122,6 +134,7 @@
     border-left:3px solid cornflowerblue;
     background:#FAFAFB;
     border-radius:3px;
+    cursor:pointer
   }
   input[type='file']{
     border:0;
