@@ -1,0 +1,25 @@
+.row{
+  /*background: #30be2f;*/
+  height: 12.5%;
+  width: 90%;
+  padding: 0 5% 0 5%;
+  display: flex;
+}
+.rowch{
+  width: 20%;
+  height: 100%;
+  /*background: indianred;*/
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /*color: white;*/
+}
+.main{
+  width: 60%;
+  text-align: center;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
