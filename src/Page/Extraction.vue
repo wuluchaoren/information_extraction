@@ -33,11 +33,11 @@
           let child = this.$refs.child;
           _this.$data.content = child.content;
           _this.$data.file=child.file;
-          console.log(this.$data.content);
           _this.$data.content===''?_this.extractFile():_this.extractContent();
         },
         extractContent: function () {
           let _this = this;
+          console.log(this.$data.content);
           _this.$axios.post('/text', {text:_this.$data.content}).then((res) => {
             localStorage.setItem('response', JSON.stringify([].slice.call(res.data)));
             this.$router.push({
